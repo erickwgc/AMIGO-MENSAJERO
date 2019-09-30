@@ -1,0 +1,52 @@
+
+nav{
+    margin:0 50px;
+    border-style: solid;    
+}
+li{
+    font-size: 20px;
+    font-weight: bold;
+
+}
+.contenedor{
+                position: relative;
+                /*display: inline-block;*/
+                text-align: center;
+            }
+
+            .centrado{
+                position: absolute;
+                top: 70%;
+                left: 39%;
+                transform: translate(-50%, -50%);
+            }
+            .centrado2{
+                position: absolute;
+                top: 25%;
+                left: 62%;
+                transform: translate(-50%, -50%);
+                color: white;
+                font-weight: bold;
+            }
+            #imagenGlobito{
+                 position: relative;
+                top: 10px;
+                left: 10%;
+                transform: translate(-50%, -50%);
+            }
+            #imagenPerrito{
+            	margin-left: 150px;
+            }
+            textarea{
+                border-width: medium;
+                border-color: black;
+                border-style: solid ;
+                resize: none;
+
+            }
+            #texto{
+            	margin-top: -18px;
+            }
+            #cajaPerrito{
+                font-weight: bold;
+            }
