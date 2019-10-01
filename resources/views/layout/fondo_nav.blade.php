@@ -15,7 +15,10 @@
         <style type="text/css">
             body{
                 background-image: url('{{asset('assets/img/fondo.png')}}');
+                background-size: cover;
+                height: 900px;
             }
+           
         </style>
 
     </head>

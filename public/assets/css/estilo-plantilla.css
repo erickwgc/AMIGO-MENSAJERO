@@ -10,20 +10,21 @@ li{
 }
 .contenedor{
                 position: relative;
-                /*display: inline-block;*/
-                text-align: center;
+                
+                /*text-align: center;*/
+                margin-left: 260px;
             }
 
             .centrado{
                 position: absolute;
                 top: 70%;
-                left: 39%;
+                left: 32%;
                 transform: translate(-50%, -50%);
             }
             .centrado2{
                 position: absolute;
                 top: 25%;
-                left: 62%;
+                left: 60%;
                 transform: translate(-50%, -50%);
                 color: white;
                 font-weight: bold;
@@ -46,7 +47,68 @@ li{
             }
             #texto{
             	margin-top: -18px;
+                margin-left: 350px;
             }
             #cajaPerrito{
                 font-weight: bold;
+            }
+
+    
+#cajaimagen{
+    position : relative;
+    float:left;
+    width: 210px;
+    margin: 20px;
+    margin-top: -300px;
+    border-color: black;
+    border-style: solid ;
+    background: white;
+    top : 80px;
+    left: 5%;    
+}
+img.imagen{
+    width: 120px;
+    height: 120px;
+    margin-left: 20px;
+}
+
+#clonado{
+    position: absolute; 
+    border-color: black;
+    border-style: solid ;
+    background: white;
+    left: 360px;
+    top: 550px ;
+    width: 500px;
+    height: 250px;
+
+}
+#insertado{
+    position:relative;
+}
+
+
+
+ .papelera {
+              background-image: url('{{asset('assets/img/basurero.png')}}');
+              -webkit-background-size: cover;
+              -moz-background-size: cover;
+              -o-background-size: cover;
+              background-size: cover;
+              float: left;
+              width: 120px;
+              height: 120px;
+              padding: 20px;
+              
+              left: 160px;
+            top: 50px ;
+            border-style: solid ;
+            border-style: solid ;
+            position : relative;
+
+           }
+            .eligir_archivos{
+                position: absolute;
+                top: 280px;
+                left: 100px;
             }
