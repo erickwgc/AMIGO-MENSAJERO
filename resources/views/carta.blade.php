@@ -49,15 +49,29 @@
                 </nav> 
 
                 
+       <table>
+         <tr>
+           <td>
+             <label for="imagen">Subir imagen</label>
+           </td>
+           <td>
+             <input type="file" name="imagen" size="20">
+           </td>
+         </tr>
+         <tr><td colspan="2"><input type="submit" value="Subir" onclick="imagendiv();"></td></tr>
+       </table>
+     
 
 
-      <form action="/guardarCarta" method="post" enctype="multipart/form-data" name="form1">
+
+
+      <form action="/carta" method="post" enctype="multipart/form-data" name="form1" >
         {{csrf_field()}}
          <div class="contenedor" >
               <img src="{{asset('assets/img/perrito.png')}}" height="200px" width="300px" id="imagenPerrito" />
               
               <div class="centrado">
-                <textarea id="cajaPerrito" name="campo_nombre">Mi nombre es...</textarea>
+                <textarea id="cajaPerrito" name="campo_nombre" placeholder="Mi nombre es..."></textarea>
               </div>
                 <img src="{{asset('assets/img/globito.png')}}" height="100px" width="430px" id="imagenGlobito" />
               <div class="centrado2">Hola... soy Lucas<br>
@@ -70,11 +84,12 @@
                 <input type="hidden" name="MAX_TAM" value="2097152">
                 <input type="file"  class= "eligir_archivos" name="mi_imagen[]" id="mi:_imagen[]" multiple="true">
 
-                <textarea id="texto" cols="70" rows="8" class="textarea" name="contenido" >Esta es una prueva
-                </textarea>
-                  
+                <textarea id="texto" cols="70" rows="8" class="textarea" name="contenido" placeholder="Esta es una prueva"></textarea>
+                <!--  
                 <img src="{{asset('assets/img/botonEnviar.png')}}" height="80px" width="180px" onclick="alert('Se enviará la carta al Amigo Mensajero');" style="cursor: pointer; margin-left: 50px;">
-                <input type="submit" name="EnviarCarta" value="Enviar carta">
+               !-->
+                <input type="submit" name="EnviarCarta" value="" style="background-image: url('{{asset('assets/img/botonEnviar.png')}}'); 
+                background-size: contain; height: 89px; width: 190px; margin-left: 50px">
               </div>
           </section> 
  
@@ -97,10 +112,11 @@
         </section>
         
 
-            <section id="clonado" ondragenter="return enter(event)" ondragover="return over(event)" ondragleave="return leave(event)" ondrop="return clonar(event)">
-                  arastrar aqui la imagen
-            </section>
-        
+         
+            <section id="clonado" ondragenter="return enter(event)" ondragover="return over(event)" ondragleave="return leave(event)" ondrop="return clonar(event)">arastrar aqui la imagen</section>
+
+           
+         
                 <div>
                   <div style="position: absolute; top: 680px; left: 90px;color: white; font-weight: bold;">
                   Borrar <br>Imagen                    
@@ -112,5 +128,6 @@
                
         @endsection 
         <script type="text/javascript" src="{!! asset('assets/js/mot_recon_voz.js') !!}" async></script>
+        <script type="text/javascript" src="{!! asset('assets/js/vistaPrevia.js') !!}" async></script>
     </body>
 </html>

@@ -18,7 +18,7 @@ li{
             .centrado{
                 position: absolute;
                 top: 70%;
-                left: 32%;
+                left: 30%;
                 transform: translate(-50%, -50%);
             }
             .centrado2{
@@ -51,6 +51,7 @@ li{
             }
             #cajaPerrito{
                 font-weight: bold;
+                margin-left: 20px;
             }
 
     
@@ -64,7 +65,9 @@ li{
     border-style: solid ;
     background: white;
     top : 80px;
-    left: 5%;    
+    left: 5%;   
+    overflow-x: hidden;
+    overflow-y: scroll; 
 }
 img.imagen{
     width: 120px;
@@ -77,9 +80,9 @@ img.imagen{
     border-color: black;
     border-style: solid ;
     background: white;
-    left: 360px;
-    top: 550px ;
-    width: 500px;
+    left: 350px;
+    top: 605px ;
+    width: 535px;
     height: 250px;
 
 }

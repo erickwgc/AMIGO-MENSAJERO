@@ -19,8 +19,9 @@ Route::get('/', "PaginasController@inicio");
 
 Route::get('/inicio', "PaginasController@inicio");
 
-Route::get('/carta', "PaginasController@carta");
+/*Route::get('/carta', "PaginasController@carta");*/
 
+Route::resource('/carta', "CartasController");
 Route::get('/boletin', "PaginasController@boletin");
 
-Route::post('/guardarCarta', "CartasController@store");
+/*Route::post('/guardarCarta', "CartasController@store");*/

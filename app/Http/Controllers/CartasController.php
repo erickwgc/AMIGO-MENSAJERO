@@ -53,14 +53,15 @@ class CartasController extends Controller
                 $imagenes = new Imagen();
                 $tmp_name = $_FILES["mi_imagen"]["tmp_name"][$i];
                 $name = $_FILES["mi_imagen"]["name"][$i];
-echo "hola";
-                $imagenes->cod_car=$carta->id;
 
-                $imagenes->ruta=$name;
+                $imagenes->cod_car=$carta->id;
+                $carpeta_destino = $_SERVER['DOCUMENT_ROOT'] . '/../uploads/';
+                move_uploaded_file($tmp_name, $carpeta_destino.$name);
+                $imagenes->ruta=$carpeta_destino;
                 $imagenes->save();
             }
         }
-        echo "enviado";
+        return view('carta');
     }
 
     /**
