@@ -78,11 +78,29 @@ contador = 0; // Variable global para tener poder poner un id unico a cada eleme
         * Elimina el elemento que se mueve
         *
         **/
-        function eliminar(e){
+        /*function eliminar(e){
+            
+            var id = e.target.id;
+            var elementoArrastrado = document.getElementById(e.dataTransfer.getData("Data")); // Elemento arrastrado
+            car imagenes = document.querySelectorAll('#cajaimagen img');
+            var paraEliminar=false;
+            for(var i=0;i<imagenes.length;i++){
+                if((id=='papelera') && (elementoArrastrado.id == imagenes[i].id)){
+                    paraEliminar=true;
+                }
+
+            }
+            if(paraEliminar==true){
+                elementoArrastrado.parentNode.removeChild(elementoArrastrado); // Elimina el elemento
+                e.target.style.border = '';   // Quita el borde
+            }
+        }*/
+         function eliminar(e){
             var elementoArrastrado = document.getElementById(e.dataTransfer.getData("Data")); // Elemento arrastrado
             elementoArrastrado.parentNode.removeChild(elementoArrastrado); // Elimina el elemento
             e.target.style.border = '';   // Quita el borde
         }
+
 
         /**
         * 

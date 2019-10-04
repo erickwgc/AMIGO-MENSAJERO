@@ -41,12 +41,12 @@ class CartasController extends Controller
     public function store(Request $request)
     {
         $carta= new Carta();
-        $carta->nom=$request->campo_nombre;
+        $carta->autor=$request->campo_nombre;
         $carta->contenido=$request->contenido;
         $carta->fecha=Carbon::now()->format('Y-m-d');
         $carta->save();
 
-        if(isset($_FILES["mi_imagen"])){
+        if($name = $_FILES["mi_imagen"]["name"][0] != null ){
             $total = count($_FILES["mi_imagen"]["name"]);
 
             for ($i=0; $i < $total; $i++) { 
@@ -54,15 +54,19 @@ class CartasController extends Controller
                 $tmp_name = $_FILES["mi_imagen"]["tmp_name"][$i];
                 $name = $_FILES["mi_imagen"]["name"][$i];
 
+                $tipo = $_FILES["mi_imagen"]["type"][$i];
                 $imagenes->cod_car=$carta->id;
+                $imagenes->nombre=$name;
                 $carpeta_destino = $_SERVER['DOCUMENT_ROOT'] . '/../uploads/';
                 move_uploaded_file($tmp_name, $carpeta_destino.$name);
                 $imagenes->ruta=$carpeta_destino;
+                $imagenes->tipo=$tipo;
                 $imagenes->save();
             }
         }
         return view('carta');
     }
+    
 
     /**
      * Display the specified resource.

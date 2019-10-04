@@ -49,20 +49,8 @@
                 </nav> 
 
                 
-       <table>
-         <tr>
-           <td>
-             <label for="imagen">Subir imagen</label>
-           </td>
-           <td>
-             <input type="file" name="imagen" size="20">
-           </td>
-         </tr>
-         <tr><td colspan="2"><input type="submit" value="Subir" onclick="imagendiv();"></td></tr>
-       </table>
+       
      
-
-
 
 
       <form action="/carta" method="post" enctype="multipart/form-data" name="form1" >
@@ -82,14 +70,14 @@
               <div class="example" >
     
                 <input type="hidden" name="MAX_TAM" value="2097152">
-                <input type="file"  class= "eligir_archivos" name="mi_imagen[]" id="mi:_imagen[]" multiple="true">
+                <input type="file"  class= "eligir_archivos" name="mi_imagen[]" id="mi:_imagen[]" multiple="true" style="color: white;">
 
-                <textarea id="texto" cols="70" rows="8" class="textarea" name="contenido" placeholder="Esta es una prueva"></textarea>
+                <textarea id="texto" cols="70" rows="8" class="textarea" name="contenido" placeholder="Esta es una prueba" required="true"></textarea>
                 <!--  
                 <img src="{{asset('assets/img/botonEnviar.png')}}" height="80px" width="180px" onclick="alert('Se enviará la carta al Amigo Mensajero');" style="cursor: pointer; margin-left: 50px;">
                !-->
                 <input type="submit" name="EnviarCarta" value="" style="background-image: url('{{asset('assets/img/botonEnviar.png')}}'); 
-                background-size: contain; height: 89px; width: 190px; margin-left: 50px">
+                background-size: contain; height: 89px; width: 190px; margin-left: 50px; position: absolute; top: 500px; ">
               </div>
           </section> 
  
@@ -106,19 +94,21 @@
         </div>
 
         
-        <section  id="cajaimagen" ondragenter="return enter(event)" ondragover="return over(event)" ondragleave="return leave(event)" ondrop="return drop(event)" style="display: inline;">
+        <section  id="cajaimagen" ondragenter="return enter(event)" ondragleave="return leave(event)" ondrop="return clonar(event)" style="display: inline;">
                           <img class="imagen" src= "{{asset('assets/img/default/mama_coco.png')}}"  id="img" draggable="true" ondragstart="start(event)" ondragend="end(event)">
                           <img class="imagen" src ="{{asset('assets/img/default/auto.png')}}" id = "img1 "  draggable="true" ondragstart="start(event)" ondragend="end(event)">
+                          <img class="imagen" src ="{{asset('assets/img/default/minecraft.png')}}" id = "img2 "  draggable="true" ondragstart="start(event)" ondragend="end(event)">
+                          <img class="imagen" src ="{{asset('assets/img/default/Perro.png')}}" id = "img3"  draggable="true" ondragstart="start(event)" ondragend="end(event)">
         </section>
         
 
-         
+            
             <section id="clonado" ondragenter="return enter(event)" ondragover="return over(event)" ondragleave="return leave(event)" ondrop="return clonar(event)">arastrar aqui la imagen</section>
 
            
          
                 <div>
-                  <div style="position: absolute; top: 680px; left: 90px;color: white; font-weight: bold;">
+                  <div style="position: absolute; top: 640px; left: 90px;color: white; font-weight: bold;">
                   Borrar <br>Imagen                    
                   </div>
                <section  class = "papelera" id="papelera" ondragenter="return enter(event)" ondragover="return over(event)" ondragleave="return leave(event)" ondrop="return eliminar(event)" style="background-image: url('{{asset('assets/img/basurero.png')}}');"> 
