@@ -24,6 +24,5 @@ Route::get('/inicio', "PaginasController@inicio");
 Route::resource('/carta', "CartasController");
 Route::get('/boletin', "PaginasController@boletin");
 
-/*Route::post('/guardarCarta', "CartasController@store");*/
-
 Route::resource('/usuarios',"UsuariosController");
+Route::resource('/login',"loginController");
