@@ -25,6 +25,11 @@ Route::resource('/carta', "CartasController");
 Route::get('/boletin', "PaginasController@boletin");
 
 Route::resource('/usuarios',"UsuariosController");
-Route::resource('/login',"loginController");
+
 
 Route::get('delete/{id}', 'UsuariosController@destroy')->name('usuario.delete');
+
+Route::get('/login', "loginController@index");
+Route::post('/loginValidar',[
+    'as'=>'loginValidar',
+    'uses'=>"loginController@store"]);

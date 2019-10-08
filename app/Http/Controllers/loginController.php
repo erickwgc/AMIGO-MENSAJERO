@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use App\Http\Requests;
 
@@ -14,6 +15,11 @@ class loginController extends Controller
         return view("auth.login");
     }
 
+	
+	public function login()
+	{
+		return "estas en validar login";
+	}
     /**
      * Show the form for creating a new resource.
      *
@@ -32,8 +38,17 @@ class loginController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $whitMail = ['email' => $request->correo, 'password' => $request->contrasenia];
+        $whitUser = ['username' => $request->correo, 'password' => $request->contrasenia];
+
+        
+        if (Auth::attempt($whitMail) || Auth::attempt($whitUser)) {
+            return 'login access';
+        } else {
+            return 'no encontrado';
+        }
     }
+    
 
     /**
      * Display the specified resource.

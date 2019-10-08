@@ -2,8 +2,7 @@
 @section("cabecera")
 @endsection
 @section("contenido")
-
-<div class="row">
+ <div class="row">
 
      <div class="col-md-4 col-md-offset-4">
 	
@@ -11,16 +10,16 @@
 		 
 		    <h1 class="panel-title">Acceso a la aplicacion</h1>
 		 </div>
-		 <div class="paneñ-body">
+		 <div class="panel-body">
 		  
-		      <form method="POST" action ="">
+		      <form method="post" action ="{{ route('loginValidar')}}">
 			       {{ csrf_field()}}
 			       <div class="form-group {{ $errors->has('usuario')? 'has-error':''}}">
 				  
 				     <label for="usuario">Usuario</label>
 				     <input class="form-control"
 							type="text"
-							name="usuario"
+							name="correo"
 							placeholder="Ingresa su usuario">
 					   {!! $errors->first('usuario','<span class="help-block">:message</span>')!!}
 							
