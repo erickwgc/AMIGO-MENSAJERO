@@ -1,15 +1,41 @@
 @extends("../layout/plantilla")
 @section("cabecera")
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgb(255,192,0);">
+                  
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+              
+                  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                      <li class="nav-item">
+                        <a class="nav-link" href="http://localhost:8000/inicio" >Inicio</a>
+                      </li>
+                      <li class="nav-item ">
+                        <a class="nav-link" href="http://localhost:8000/carta">Escribe tu Carta</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="http://localhost:8000/boletin">Boletín</a>
+                      </li>
+                     <li class="nav-item active">
+                        <a class="nav-link" href="http://localhost:8000/usuarios" style="text-decoration: underline;">Usuarios<span class="sr-only">(current)</span></a>
+                      </li>
+                    </ul>
+                  </div>
+                </nav>
+                <h2 style="color: white;">ESTA ES LA VISTA DE AMINISTRADOR-PESTAÑA USUARIOS</h2> 
 @endsection
 @section("contenido")
+    <input type="submit" value="" onclick = "location='/usuarios/create'" style="background-image: url('{{asset('assets/img/botonCrearCuenta.png')}}'); 
+                background-size: contain; height: 40px; width: 141px;" />
     <table border="1">
-        <tr>
-            <td>Codigo</td>
+        <thead>
+            <td>Código</td>
             <td>Nombre</td>
             <td>Apellido</td>
             <td>Correo</td>
             <td>Modificar</td>
-        </tr>
+        </thead>
     @foreach($usuarios as $usuario)
         <tr>
             <td><a href="{{route('usuarios.show',$usuario->id)}}">{{$usuario->id}}</a></td>

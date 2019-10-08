@@ -39,7 +39,9 @@
                       <li class="nav-item active">
                         <a class="nav-link" href="#" style="text-decoration: underline;">Boletín<span class="sr-only">(current)</span></a>
                       </li>
-                     
+                      <li class="nav-item">
+                        <a class="nav-link" href="http://localhost:8000/usuarios">Usuarios</a>
+                      </li>
                     </ul>
                   </div>
                 </nav>  
