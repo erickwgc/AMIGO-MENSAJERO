@@ -2,22 +2,10 @@
 @section("cabecera")
 @endsection
 @section("contenido")
-    <table border="1">
-        <tr>
-            <td>Codigo</td>
-            <td>Nombre</td>
-            <td>Apellido</td>
-            <td>Correo</td>
-            <td>Modificar</td>
-        </tr>
-    @foreach($usuarios as $usuario)
-        <tr>
-            <td>{{$usuario->id}}</td>
-            <td><a href="{{route('usuarios.show','$usuario->id')}}"{{$usuario->nom_usu}}</a></td>
-            <td>{{$usuario->ape_usu}}</td>
-            <td>{{$usuario->correo}}</td>
-            <td>Editar Eliminar Permisos</td>
-        </tr>
-    @endforeach
-    </table>
+    <h1>{{$usuario->nom_usu}}</h1>
+    <h1>{{$usuario->ape_usu}}</h1>
+    <h1>{{$usuario->correo}}</h1>
+    <h1>{{$usuario->fecha_nac}}</h1>
+    <h1>{{$usuario->tel_usu}}</h1>
+    
 @endsection

@@ -9,8 +9,9 @@
     .contenido form, table{
         width:600px;
         margin: 0 auto;
-        background: #FFFFFF;
-    }
+        background:#FFFFFF;
+        }
+    
     </style>
 </head>
 <body>

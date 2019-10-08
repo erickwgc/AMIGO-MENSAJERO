@@ -39,7 +39,7 @@ class UsuariosController extends Controller
      */
     public function store(Request $request)
     {
-        //return view("usuarios.insert");
+        $this->validate($request,['nom_usu'=>'required']);
         $usuarios=new Usuario();
         $usuarios->nom_usu=$request->nom_usu;
         $usuarios->ape_usu=$request->ape_usu;
@@ -49,6 +49,7 @@ class UsuariosController extends Controller
         $usuarios->usuario=$request->usuario;
         $usuarios->contrasenia=$request->contrasenia;
         $usuarios->save();
+        return redirect("/usuarios");
     }
     
 
@@ -63,7 +64,8 @@ class UsuariosController extends Controller
         $usuario=Usuario::findOrFail($id);
         return view("usuarios.show",compact("usuario"));
     }
-
+    
+    
     /**
      * Show the form for editing the specified resource.
      *
@@ -73,7 +75,7 @@ class UsuariosController extends Controller
     public function edit($id)
     {
         $usuario=Usuario::findOrFail($id);
-        return view("usuarios.edit",compact("usuarios"));
+        return view("usuarios.edit",compact("usuario"));
     }
 
     /**
@@ -85,7 +87,9 @@ class UsuariosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return view("usuarios.update");
+        $usuario=Usuario::findOrFail($id);
+        $usuario->update(($request->all()));
+        return redirect("/usuarios");
     }
 
     /**
@@ -94,8 +98,12 @@ class UsuariosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function destroy($id)
     {
-        return view("usuarios.delete");
+
+        $usuario=Usuario::findOrFail($id);
+        $usuario->delete();
+        return redirect("/usuarios");
     }
 }

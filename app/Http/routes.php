@@ -26,3 +26,5 @@ Route::get('/boletin', "PaginasController@boletin");
 
 Route::resource('/usuarios',"UsuariosController");
 Route::resource('/login',"loginController");
+
+Route::get('delete/{id}', 'UsuariosController@destroy')->name('usuario.delete');
