@@ -6,11 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-use App\Usuario;
-
 use App\Role;
 
-class UsuariosController extends Controller
+class RolesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,10 +17,8 @@ class UsuariosController extends Controller
      */
     public function index()
     {
-        $usuarios=Usuario::all();
-        
-        return view("usuarios.index",compact("usuarios"));
-        
+        $roles=Role::all();
+        return view("roles.index",compact("roles"));
     }
 
     /**
@@ -32,8 +28,7 @@ class UsuariosController extends Controller
      */
     public function create()
     {
-        $roles=Role::all();
-        return view("usuarios.create",compact("roles"));      
+        return view("roles.create");   
     }
 
     /**
@@ -44,25 +39,12 @@ class UsuariosController extends Controller
      */
     public function store(Request $request)
     {
-        //$this->validate($request,['nom_usu'=>'required']);
-        $nom_rol=$request->nom_rol;
-        $rol=Role::where('nom_rol',$nom_rol)->first();
-        //echo $rol;
-        
-        $usuarios=new Usuario();
-        
-        $usuarios->nom_usu=$request->nom_usu;
-        $usuarios->ape_usu=$request->ape_usu;
-        $usuarios->correo=$request->correo;
-        $usuarios->fecha_nac=$request->fecha_nac;
-        $usuarios->tel_usu=$request->tel_usu;
-        $usuarios->usuario=$request->usuario;
-        $usuarios->contrasenia=$request->contrasenia;
-        $usuarios->save();
-        $usuarios->roles()->attach($rol);
-        return redirect("/usuarios");
+        $roles=new Role();
+        $roles->nom_rol=$request->nom_rol;
+        $roles->descripcion=$request->descripcion;  
+        $roles->save();
+        return redirect("/roles");
     }
-    
 
     /**
      * Display the specified resource.
@@ -72,11 +54,9 @@ class UsuariosController extends Controller
      */
     public function show($id)
     {
-        $usuario=Usuario::findOrFail($id);
-        return view("usuarios.show",compact("usuario"));
+        //
     }
-    
-    
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -85,8 +65,7 @@ class UsuariosController extends Controller
      */
     public function edit($id)
     {
-        $usuario=Usuario::findOrFail($id);
-        return view("usuarios.edit",compact("usuario"));
+        //
     }
 
     /**
@@ -98,9 +77,7 @@ class UsuariosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $usuario=Usuario::findOrFail($id);
-        $usuario->update(($request->all()));
-        return redirect("/usuarios");
+        //
     }
 
     /**
@@ -109,12 +86,8 @@ class UsuariosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-
     public function destroy($id)
     {
-
-        $usuario=Usuario::findOrFail($id);
-        $usuario->delete();
-        return redirect("/usuarios");
+        //
     }
 }

@@ -23,81 +23,33 @@
                     </ul>
                   </div>
                 </nav>
-                <h2 style="color: white;">ESTA ES LA VISTA DE AMINISTRADOR-PESTAÑA USUARIOS/crearusuario</h2> 
+                <h2 style="color: white;">ESTA ES LA VISTA DE AMINISTRADOR-PESTAÑA USUARIOS/crea rroles</h2> 
 @endsection
 @section("contenido")
 
-<form action="/usuarios" method="post">
+<form action="/roles" method="post">
 <table>
 
 <tr>
-<td>Nombre: </td>
-<td><input type="text" name="nom_usu">
+<td>Nombre de rol: </td>
+<td><input type="text" name="nom_rol">
     {{csrf_field()}}
 </td>
 </tr>
 
 <tr>
-<td>Apellido: </td>
-<td><input type="text" name="ape_usu">
+<td>Descripcion del rol: </td>
+<td><input type="text" name="descripcion">
 </td>
 </tr>
 
 <tr>
-<td>Correo: </td>
-<td><input type="text" name="correo">
+<td colspan="2" align="center">
+<input type="submit" name="enviar" value="Crear_Rol">
 </td>
 </tr>
 
-<tr>
-<td>Fecha nacimiento:: </td>
-<td><input type="text" name="fecha_nac">
-</td>
-</tr>
-
-<tr>
-<td>Telefono: </td>
-<td><input type="text" name="tel_usu">
-</td>
-</tr>
-
-<tr>
-<td>Rol</td>
-<td>
-  <select name="nom_rol">
-    @foreach($roles as $role)
-      <option value="{{$role->nom_rol}}">{{$role->nom_rol}}</option>
-    @endforeach
-  </select>
-</td>
-</tr>
-
-
-<tr>
-<td>Usuario: </td>
-<td><input type="text" name="usuario">
-</td>
-</tr>
-
-<tr>
-<td>Contraseña: </td>
-<td><input type="password" name="contrasenia">
-</td>
-</tr>
-
-<tr>
-<td>Confirmar Contraseña: </td>
-<td><input type="password" name="confirmcontrasenia">
-</td>
-</tr>
-
-
-<tr><td colspan="2" align="center">
-<input type="submit" name="enviar" value="" style="background-image: url('{{asset('assets/img/botonRegistrarCuenta.png')}}'); 
-                background-size: cover; height: 40px; width: 241px;">
-</td></tr>
 </table>
 </form>
-
 
 @endsection

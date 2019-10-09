@@ -24,12 +24,19 @@ Route::get('/inicio', "PaginasController@inicio");
 Route::resource('/carta', "CartasController");
 Route::get('/boletin', "PaginasController@boletin");
 
+
+//USUARIOS
 Route::resource('/usuarios',"UsuariosController");
 
 
 Route::get('delete/{id}', 'UsuariosController@destroy')->name('usuario.delete');
 
+//LOGIN
 Route::get('/login', "loginController@index");
+
 Route::post('/loginValidar',[
     'as'=>'loginValidar',
     'uses'=>"loginController@store"]);
+//ROLES
+
+Route::resource('/roles',"RolesController");
