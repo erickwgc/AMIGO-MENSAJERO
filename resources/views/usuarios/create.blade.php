@@ -28,7 +28,7 @@
 @section("contenido")
 
 <form action="/usuarios" method="post">
-<table>
+<table style="font-size: 14px;font-weight: bold;">
 
 <tr>
 <td>Nombre: </td>

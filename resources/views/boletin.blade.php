@@ -20,7 +20,9 @@
 
     </head>
     <body>
+      
       @extends("layout.plantilla")
+
       @section("cabecera")
       <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgb(255,192,0);">
                   
