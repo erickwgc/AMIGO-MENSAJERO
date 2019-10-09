@@ -12,8 +12,7 @@
 		 </div>
 		 <div class="panel-body">
 		  
-		      <form method="post" action ="{{ route('loginValidar')}}">
-			  
+		      <form method="post" action ="/login">
 
 			       {{ csrf_field()}}
 			       <div class="form-group {{ $errors->has('usuario')? 'has-error':''}}">

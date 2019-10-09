@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use App\Http\Requests;
+use App\Usuario;
 
 class loginController extends Controller
 {
@@ -38,8 +39,8 @@ class loginController extends Controller
      */
     public function store(Request $request)
     {
-        $whitMail = ['email' => $request->correo, 'password' => $request->contrasenia];
-        $whitUser = ['username' => $request->correo, 'password' => $request->contrasenia];
+        $whitMail = ['email' => $request->correo_name, 'password' => $request->contrasenia];
+        $whitUser = ['username' => $request->correo_name, 'password' => $request->contrasenia];
 
         
         if (Auth::attempt($whitMail) || Auth::attempt($whitUser)) {
@@ -47,6 +48,7 @@ class loginController extends Controller
         } else {
             return 'no encontrado';
         }
+       
     }
     
 

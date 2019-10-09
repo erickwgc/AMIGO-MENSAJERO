@@ -75,19 +75,19 @@
 
 <tr>
 <td>Usuario: </td>
-<td><input type="text" name="usuario">
+<td><input type="text" name="usuario" required>
 </td>
 </tr>
 
 <tr>
 <td>Contraseña: </td>
-<td><input type="password" name="contrasenia">
+<td><input type="password" name="contrasenia" required>
 </td>
 </tr>
 
 <tr>
 <td>Confirmar Contraseña: </td>
-<td><input type="password" name="confirmcontrasenia">
+<td><input type="password" name="confirmcontrasenia" required>
 </td>
 </tr>
 

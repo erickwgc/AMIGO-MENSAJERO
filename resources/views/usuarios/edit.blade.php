@@ -21,7 +21,7 @@
 
 <tr>
 <td>Correo: </td>
-<td><input type="text" name="correo" value="{{$usuario->correo}}">
+<td><input type="text" name="correo" value="{{$usuario->email}}">
 </td>
 </tr>
 
@@ -39,13 +39,13 @@
 
 <tr>
 <td>Usuario: </td>
-<td><input type="text" name="usuario" value="{{$usuario->usuario}}">
+<td><input type="text" name="usuario" value="{{$usuario->username}}">
 </td>
 </tr>
 
 <tr>
 <td>Contraseña: </td>
-<td><input type="text" name="contrasenia" value="{{$usuario->contrasenia}}">
+<td><input type="text" name="contrasenia" value="{{$usuario->password}}">
 </td>
 </tr>
 

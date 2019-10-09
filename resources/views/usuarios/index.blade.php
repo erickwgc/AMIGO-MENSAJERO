@@ -41,7 +41,7 @@
             <td><a href="{{route('usuarios.show',$usuario->id)}}">{{$usuario->id}}</a></td>
             <td>{{$usuario->nom_usu}}</td>
             <td>{{$usuario->ape_usu}}</td>
-            <td>{{$usuario->correo}}</td>
+            <td>{{$usuario->email}}</td>
             <td><a href="{{route('usuarios.edit',$usuario->id)}}">Editar</a> 
                 
                 <!--<form method="post" action="/usuarios/{{$usuario->id}}">

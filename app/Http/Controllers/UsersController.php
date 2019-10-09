@@ -6,11 +6,12 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-use App\Usuario;
+
+use App\User;
 
 use App\Role;
 
-class UsuariosController extends Controller
+class UsersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,10 +20,9 @@ class UsuariosController extends Controller
      */
     public function index()
     {
-        $usuarios=Usuario::all();
+        $usuarios=User::all();
         
         return view("usuarios.index",compact("usuarios"));
-        
     }
 
     /**
@@ -33,7 +33,7 @@ class UsuariosController extends Controller
     public function create()
     {
         $roles=Role::all();
-        return view("usuarios.create",compact("roles"));      
+        return view("usuarios.create",compact("roles"));
     }
 
     /**
@@ -44,26 +44,26 @@ class UsuariosController extends Controller
      */
     public function store(Request $request)
     {
-        //$this->validate($request,['nom_usu'=>'required']);
         $nom_rol=$request->nom_rol;
         
         $rol=Role::where('nom_rol',$nom_rol)->first();
         //echo $rol;
         
-        $usuarios=new Usuario();
+        $usuarios=new User();
         
         $usuarios->nom_usu=$request->nom_usu;
         $usuarios->ape_usu=$request->ape_usu;
-        $usuarios->correo=$request->correo;
+        $usuarios->email=$request->correo;
         $usuarios->fecha_nac=$request->fecha_nac;
         $usuarios->tel_usu=$request->tel_usu;
-        $usuarios->usuario=$request->usuario;
-        $usuarios->contrasenia=$request->contrasenia;
+        $usuarios->username=$request->usuario;
+        $clave = $request->contrasenia;
+
+        $usuarios->password=crypt($clave);
         $usuarios->save();
         $usuarios->roles()->attach($rol);
         return redirect("/usuarios");
     }
-    
 
     /**
      * Display the specified resource.
@@ -73,11 +73,10 @@ class UsuariosController extends Controller
      */
     public function show($id)
     {
-        $usuario=Usuario::findOrFail($id);
+        $usuario=User::findOrFail($id);
         return view("usuarios.show",compact("usuario"));
     }
-    
-    
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -86,7 +85,7 @@ class UsuariosController extends Controller
      */
     public function edit($id)
     {
-        $usuario=Usuario::findOrFail($id);
+        $usuario=User::findOrFail($id);
         return view("usuarios.edit",compact("usuario"));
     }
 
@@ -99,7 +98,7 @@ class UsuariosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $usuario=Usuario::findOrFail($id);
+        $usuario=User::findOrFail($id);
         $usuario->update(($request->all()));
         return redirect("/usuarios");
     }
@@ -110,11 +109,9 @@ class UsuariosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-
     public function destroy($id)
     {
-
-        $usuario=Usuario::findOrFail($id);
+        $usuario=User::findOrFail($id);
         $usuario->delete();
         return redirect("/usuarios");
     }
