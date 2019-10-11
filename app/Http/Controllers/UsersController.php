@@ -21,8 +21,9 @@ class UsersController extends Controller
     public function index()
     {
         $usuarios=User::all();
-        
+        $roles=Role::all();
         return view("usuarios.index",compact("usuarios"));
+    
     }
 
     /**
@@ -73,8 +74,13 @@ class UsersController extends Controller
      */
     public function show($id)
     {
+
         $usuario=User::findOrFail($id);
-        return view("usuarios.show",compact("usuario"));
+        
+        echo $usuario->roles;
+
+        
+        //return view("usuarios.show",compact("usuario","role"));
     }
 
     /**
@@ -85,8 +91,9 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
+        $roles=Role::all();
         $usuario=User::findOrFail($id);
-        return view("usuarios.edit",compact("usuario"));
+        return view("usuarios.edit",compact("usuario","roles"));
     }
 
     /**
@@ -97,9 +104,19 @@ class UsersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        $usuario=User::findOrFail($id);
-        $usuario->update(($request->all()));
+    {   
+        //$usuario=User::findOrFail($id);
+        //$usuario->update(($request->all()));
+        
+         User::where('id',$id)->update([
+        'nom_usu'=>$request->nom_usu,
+        'ape_usu'=>$request->ape_usu,
+        'email'=>$request->correo,
+        'fecha_nac'=>$request->fecha_nac,
+        'tel_usu'=>$request->tel_usu,
+         ]);
+
+        User::find($id)->roles()->sync([$request->role_id]);
         return redirect("/usuarios");
     }
 
@@ -111,6 +128,7 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
+        
         $usuario=User::findOrFail($id);
         $usuario->delete();
         return redirect("/usuarios");
