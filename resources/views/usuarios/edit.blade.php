@@ -38,17 +38,15 @@
 </tr>
 
 <tr>
-<td>Usuario: </td>
-<td><input type="text" name="usuario" value="{{$usuario->username}}">
+<td>Rol</td>
+<td>
+  <select name="nom_rol">
+    @foreach($roles as $role)
+      <option value="{{$role->nom_rol}}">{{$role->nom_rol}}</option>
+    @endforeach
+  </select>
 </td>
 </tr>
-
-<tr>
-<td>Contraseña: </td>
-<td><input type="text" name="contrasenia" value="{{$usuario->password}}">
-</td>
-</tr>
-
 
 <tr><td colspan="2" align="center">
 <input type="submit" name="enviar" value="Enviar">

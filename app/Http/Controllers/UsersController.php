@@ -85,8 +85,9 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
+        $roles=Role::all();
         $usuario=User::findOrFail($id);
-        return view("usuarios.edit",compact("usuario"));
+        return view("usuarios.edit",compact("usuario","roles"));
     }
 
     /**
@@ -98,9 +99,17 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $nom_rol=$request->nom_rol;
+        
+        $rol=Role::where('nom_rol',$nom_rol)->first();
+        
+        echo $rol;
+        //$usuario=roles()->attach($rol);
+        
         $usuario=User::findOrFail($id);
         $usuario->update(($request->all()));
-        return redirect("/usuarios");
+        
+        //return redirect("/usuarios");
     }
 
     /**
@@ -111,8 +120,10 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
+        
         $usuario=User::findOrFail($id);
+        //$usuario->detach();
         $usuario->delete();
-        return redirect("/usuarios");
+        //return redirect("/usuarios");
     }
 }
