@@ -46,6 +46,9 @@
                       <li class="nav-item">
                         <a class="nav-link" href="http://localhost:8000/usuarios">Usuarios</a>
                       </li>
+                      <li class="nav-item ">
+                        <a class="nav-link" href="http://localhost:8000/roles">Roles</a>
+                      </li>
                     </ul>
                   </div>
                 </nav> 
