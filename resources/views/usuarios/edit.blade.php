@@ -40,9 +40,9 @@
 <tr>
 <td>Rol</td>
 <td>
-  <select name="nom_rol">
+  <select name="role_id">
     @foreach($roles as $role)
-      <option value="{{$role->nom_rol}}">{{$role->nom_rol}}</option>
+      <option value="{{$role->id}}">{{$role->nom_rol}}</option>
     @endforeach
   </select>
 </td>

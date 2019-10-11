@@ -46,9 +46,6 @@
                       <li class="nav-item">
                         <a class="nav-link" href="http://localhost:8000/usuarios">Usuarios</a>
                       </li>
-                      <li class="nav-item ">
-                        <a class="nav-link" href="http://localhost:8000/roles">Roles</a>
-                      </li>
                     </ul>
                   </div>
                 </nav> 
@@ -108,9 +105,7 @@
         
 
             
-            <section id="clonado" ondragenter="return enter(event)" ondragover="return over(event)" ondragleave="return leave(event)" ondrop="return clonar(event)">
-            <output id="list" for ="mi:_imagen[]"></output>
-            </section>
+            <section id="clonado" ondragenter="return enter(event)" ondragover="return over(event)" ondragleave="return leave(event)" ondrop="return clonar(event)">arastrar aqui la imagen</section>
 
            
          
@@ -124,7 +119,6 @@
                 </div>
                
         @endsection 
-
         <script type="text/javascript" src="{!! asset('assets/js/mot_recon_voz.js') !!}" async></script>
         <script type="text/javascript" src="{!! asset('assets/js/vistaPrevia.js') !!}" async></script>
     </body>

@@ -30,6 +30,7 @@ Route::get('/boletin', "PaginasController@boletin");
 
 
 Route::get('delete/{id}', 'UsuariosController@destroy')->name('usuario.delete');*/
+
 ///USER
 Route::resource('/usuarios',"UsersController");
 

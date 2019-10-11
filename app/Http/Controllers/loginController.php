@@ -39,8 +39,8 @@ class loginController extends Controller
      */
     public function store(Request $request)
     {
-        $whitMail = ['email' => $request->correo_name, 'password' => $request->contrasenia];
-        $whitUser = ['username' => $request->correo_name, 'password' => $request->contrasenia];
+        $whitMail = ['email' => $request->correo, 'password' => $request->contrasenia];
+        $whitUser = ['username' => $request->correo, 'password' => $request->contrasenia];
 
         
         if (Auth::attempt($whitMail) || Auth::attempt($whitUser)) {

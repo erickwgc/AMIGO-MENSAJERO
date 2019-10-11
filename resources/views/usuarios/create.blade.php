@@ -20,9 +20,6 @@
                      <li class="nav-item active">
                         <a class="nav-link" href="http://localhost:8000/usuarios" style="text-decoration: underline;">Usuarios<span class="sr-only">(current)</span></a>
                       </li>
-                      <li class="nav-item ">
-                        <a class="nav-link" href="http://localhost:8000/roles">Roles</a>
-                      </li>
                     </ul>
                   </div>
                 </nav>
@@ -31,7 +28,7 @@
 @section("contenido")
 
 <form action="/usuarios" method="post">
-<table style="font-size: 14px;font-weight: bold;">
+<table>
 
 <tr>
 <td>Nombre: </td>

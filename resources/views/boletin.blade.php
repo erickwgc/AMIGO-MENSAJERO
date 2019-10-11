@@ -20,9 +20,7 @@
 
     </head>
     <body>
-      
       @extends("layout.plantilla")
-
       @section("cabecera")
       <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgb(255,192,0);">
                   
@@ -43,9 +41,6 @@
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="http://localhost:8000/usuarios">Usuarios</a>
-                      </li>
-                      <li class="nav-item ">
-                        <a class="nav-link" href="http://localhost:8000/roles">Roles</a>
                       </li>
                     </ul>
                   </div>

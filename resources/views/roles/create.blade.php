@@ -17,16 +17,13 @@
                       <li class="nav-item">
                         <a class="nav-link" href="http://localhost:8000/boletin">Boletín</a>
                       </li>
-                     <li class="nav-item ">
-                        <a class="nav-link" href="http://localhost:8000/usuarios" >Usuarios<span class="sr-only">(current)</span></a>
-                      </li>
-                      <li class="nav-item active">
-                        <a class="nav-link" href="http://localhost:8000/roles" style="text-decoration: underline;">Roles</a>
+                     <li class="nav-item active">
+                        <a class="nav-link" href="http://localhost:8000/usuarios" style="text-decoration: underline;">Usuarios<span class="sr-only">(current)</span></a>
                       </li>
                     </ul>
                   </div>
                 </nav>
-                <h2 style="color: white;">ESTA ES LA VISTA DE AMINISTRADOR-PESTAÑA ROLES/crea rroles</h2> 
+                <h2 style="color: white;">ESTA ES LA VISTA DE AMINISTRADOR-PESTAÑA USUARIOS/crea rroles</h2> 
 @endsection
 @section("contenido")
 
@@ -48,8 +45,7 @@
 
 <tr>
 <td colspan="2" align="center">
-<input type="submit" name="enviar" value="" style="background-image: url('{{asset('assets/img/botonGuardarRol.png')}}'); 
-                background-size: contain; height: 60px; width: 211px;">
+<input type="submit" name="enviar" value="Crear_Rol">
 </td>
 </tr>
 

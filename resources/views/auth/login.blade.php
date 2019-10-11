@@ -21,7 +21,7 @@
 				     <label for="usuario">Usuario</label>
 				     <input class="form-control"
 							type="text"
-							name="correo_name"
+							name="correo"
 							placeholder="Ingresa su usuario">
 					   {!! $errors->first('usuario','<span class="help-block">:message</span>')!!}
 							

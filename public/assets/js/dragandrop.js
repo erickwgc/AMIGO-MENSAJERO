@@ -97,23 +97,9 @@ contador = 0; // Variable global para tener poder poner un id unico a cada eleme
         }*/
          function eliminar(e){
             var elementoArrastrado = document.getElementById(e.dataTransfer.getData("Data")); // Elemento arrastrado
-            var verificador =false;
-            var imagenes =document.querySelectorAll("#cajaimagen img");
-
-            for (var i = 0; i<imagenes.length; i++) {
-                if(elementoArrastrado.id == imagenes[i].id){
-                    verificador = true;
-                    }
-            }
-            if (verificador == false) {    
             elementoArrastrado.parentNode.removeChild(elementoArrastrado); // Elimina el elemento
-            e.target.style.border = ''; 
-              // Quita el borde
-            }
+            e.target.style.border = '';   // Quita el borde
         }
-
-           
-        
 
 
         /**
