@@ -108,7 +108,9 @@
         
 
             
-            <section id="clonado" ondragenter="return enter(event)" ondragover="return over(event)" ondragleave="return leave(event)" ondrop="return clonar(event)"></section>
+            <section id="clonado" ondragenter="return enter(event)" ondragover="return over(event)" ondragleave="return leave(event)" ondrop="return clonar(event)">
+            <output id="list" for ="mi:_imagen[]"></output>
+            </section>
 
            
          
