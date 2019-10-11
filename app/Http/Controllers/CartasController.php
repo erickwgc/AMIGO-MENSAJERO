@@ -46,6 +46,7 @@ class CartasController extends Controller
         $carta->fecha=Carbon::now()->format('Y-m-d');
         $carta->save();
 
+        
         if($name = $_FILES["mi_imagen"]["name"][0] != null ){
             $total = count($_FILES["mi_imagen"]["name"]);
 
@@ -61,7 +62,10 @@ class CartasController extends Controller
                 move_uploaded_file($tmp_name, $carpeta_destino.$name);
                 $imagenes->ruta=$carpeta_destino;
                 $imagenes->tipo=$tipo;
-                $imagenes->save();
+
+                //if(ereg("gif",$name) || ereg("jpg",$name) || ereg("png",$name)){
+                	$imagenes->save();	
+               // }
             }
         }
         return view('carta');
