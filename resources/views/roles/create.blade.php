@@ -52,8 +52,6 @@
                 background-size: contain; height: 60px; width: 211px;">
 </td>
 </tr>
-
 </table>
 </form>
-
 @endsection
