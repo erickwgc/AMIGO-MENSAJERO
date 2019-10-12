@@ -30,42 +30,50 @@
 @endsection
 @section("contenido")
 
-<form action="/usuarios" method="post">
-<table style="font-size: 14px;font-weight: bold;">
+<form action="/usuarios" method="post" style="background: transparent; width: 90%;">
+<table style="font-size: 16px;font-weight: bold; background: transparent; width: 90%;margin: 20px auto;">
 
 <tr>
-<td>Nombre: </td>
+<td id="idCampo">Nombre: </td>
 <td><input type="text" name="nom_usu">
     {{csrf_field()}}
 </td>
-</tr>
 
+<td id="idCampo">Usuario: </td>
+<td><input type="text" name="usuario" required>
+</td>
+
+</tr>
 <tr>
-<td>Apellido: </td>
+<td id="idCampo">Apellido: </td>
 <td><input type="text" name="ape_usu">
 </td>
+
+<td id="idCampo">Contraseña: </td>
+<td><input type="password" name="contrasenia" required>
+</td>
+
+
 </tr>
 
 <tr>
-<td>Correo: </td>
+<td id="idCampo">Correo: </td>
 <td><input type="text" name="correo">
 </td>
+
+<td id="idCampo">Confirmar Contraseña: </td>
+<td><input type="password" name="confirmcontrasenia" required>
+</td>
+
+
 </tr>
 
 <tr>
-<td>Fecha nacimiento:: </td>
+<td id="idCampo">Fecha nacimiento: </td>
 <td><input type="text" name="fecha_nac">
 </td>
-</tr>
 
-<tr>
-<td>Telefono: </td>
-<td><input type="text" name="tel_usu">
-</td>
-</tr>
-
-<tr>
-<td>Rol</td>
+<td id="idCampo">Rol</td>
 <td>
   <select name="nom_rol">
     @foreach($roles as $role)
@@ -73,32 +81,42 @@
     @endforeach
   </select>
 </td>
-</tr>
 
-
-<tr>
-<td>Usuario: </td>
-<td><input type="text" name="usuario" required>
-</td>
 </tr>
 
 <tr>
-<td>Contraseña: </td>
-<td><input type="password" name="contrasenia" required>
-</td>
-</tr>
-
-<tr>
-<td>Confirmar Contraseña: </td>
-<td><input type="password" name="confirmcontrasenia" required>
+<td id="idCampo">Telefono: </td>
+<td><input type="text" name="tel_usu">
 </td>
 </tr>
 
 
-<tr><td colspan="2" align="center">
-<input type="submit" name="enviar" value="" style="background-image: url('{{asset('assets/img/botonRegistrarCuenta.png')}}'); 
-                background-size: cover; height: 40px; width: 241px;">
-</td></tr>
+<!--
+<tr>
+
+</tr>
+-->
+<!--
+<tr>
+
+</tr>
+
+<tr>
+
+</tr>
+
+<tr>
+
+</tr>
+-->
+
+  <th>
+    
+    <td colspan="2" align="center">
+      <input type="submit" name="enviar" value="" style="background-image: url('{{asset('assets/img/botonRegistrarCuenta.png')}}'); 
+                  background-size: cover; height: 40px; width: 241px;margin-top: 50px; margin-left: 30px;">
+    </td>
+  </th>
 </table>
 </form>
 

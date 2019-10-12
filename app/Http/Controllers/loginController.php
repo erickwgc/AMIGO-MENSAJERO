@@ -5,8 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+use App\Http\Controllers\Controller;
+
 use App\Http\Requests;
-use App\Usuario;
+use App\User;
+use Validator;
 
 class loginController extends Controller
 {
@@ -19,7 +22,12 @@ class loginController extends Controller
 	
 	public function login()
 	{
-		return "estas en validar login";
+		$this->validate(request(),[
+            'email' => 'email|required|string',
+            'password' => 'required|string'
+        ]);
+
+        
 	}
     /**
      * Show the form for creating a new resource.
@@ -39,8 +47,35 @@ class loginController extends Controller
      */
     public function store(Request $request)
     {
-        $whitMail = ['email' => $request->correo, 'password' => $request->contrasenia];
-        $whitUser = ['username' => $request->correo, 'password' => $request->contrasenia];
+
+
+        $this->validate($request,[
+
+            'correo_name'=>'required',
+            'contrasenia'=>'required',
+
+
+        ]);
+
+      //return $request->session()->all();
+      
+      /*  $usuario=new User;
+        $v=validator::make($request->all(),[
+
+            'correo_name'=>'required',
+            'contrasenia'=>'required'
+        ]);
+
+        if ($v->fails()) {
+            return "fallo";
+        }else {
+        
+            return "exito";
+        }*/
+
+    
+        $whitMail = ['email' => $request->correo_name, 'password' => $request->contrasenia];
+        $whitUser = ['username' => $request->correo_name, 'password' => $request->contrasenia];
 
         
         if (Auth::attempt($whitMail) || Auth::attempt($whitUser)) {
@@ -49,6 +84,15 @@ class loginController extends Controller
             return 'no encontrado';
         }
        
+    }
+
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'name' => 'required|max:255',
+            'email' => 'required|email|max:255|unique:users',
+            'password' => 'required|min:6|confirmed',
+        ]);
     }
     
 

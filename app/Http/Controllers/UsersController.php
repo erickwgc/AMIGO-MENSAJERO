@@ -60,7 +60,7 @@ class UsersController extends Controller
         $usuarios->username=$request->usuario;
         $clave = $request->contrasenia;
 
-        $usuarios->password=crypt($clave);
+        $usuarios->password=crypt($clave,'');
         $usuarios->save();
         $usuarios->roles()->attach($rol);
         return redirect("/usuarios");
