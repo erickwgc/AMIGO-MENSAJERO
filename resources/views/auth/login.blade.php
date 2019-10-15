@@ -40,7 +40,7 @@
 		  
 		      <form method="post" action ="{{ route('loginValidar')}}" style="background-color: transparent;" id="campos">
 			       {{ csrf_field()}}
-
+ 
 
 			       <div class="form-group {{ $errors->has('usuario')? 'has-error':''}}" style="margin-top: 5px;">
 				  
@@ -48,7 +48,7 @@
 				      <img src="{{asset('assets/img/usr.jpg')}}" width="30px" height="30px" style="position: absolute; margin-top: 28px; margin-left: 10px;">
 				     <input class="form-control" type="text" name="correo_name"
 							placeholder="Nombre de Usuario o Correo electrónico" style="-webkit-border-radius: 50px;-moz-border-radius: 50px;border-radius: 50px; text-align: center; text-rendering: auto;">
-					   {!! $errors->first('usuario','<span class="help-block">:Nombre de Usuario o Correo es requerido</span>')!!}
+					   {!! $errors->first('correo_name','<span class="help-block" style="color:#ffffff">Nombre de Usuario o Correo es requerido</span>')!!}
 							
 				  </div>
 				   <div class="form-group {{ $errors->has('contrasenia')? 'has-error':''}}">
@@ -57,7 +57,8 @@
 				     <img src="{{asset('assets/img/candado.jpg')}}" width="30px" height="30px" style="position: absolute; margin-top: 28px; margin-left: 10px;">
 				     <input class="form-control" type="password" name="contrasenia"
 							placeholder="Contraseña" style="-webkit-border-radius: 50px;-moz-border-radius: 50px;border-radius: 50px; text-align: center;">
-							{!! $errors->first('contrasenia','<span class="help-block">:Contraseña es requerida</span>')!!}
+
+							{!! $errors->first('contrasenia','<span class="help-block" style="color:#ffffff; text-align: center;">Contraseña es requerida</span>')!!}
 				  </div>
 				  <div class="modal-footer" style="border-top: 0px;">
 				  	

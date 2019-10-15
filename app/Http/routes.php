@@ -30,7 +30,6 @@ Route::get('/boletin', "PaginasController@boletin");
 
 
 Route::get('delete/{id}', 'UsuariosController@destroy')->name('usuario.delete');*/
-
 ///USER
 Route::resource('/usuarios',"UsersController");
 
@@ -38,14 +37,13 @@ Route::resource('/usuarios',"UsersController");
 Route::get('delete/{id}', 'UsersController@destroy')->name('usuario.delete');
 
 //LOGIN
-Route::get('/login', "loginController@index");
-
-
+Route::get('/login',"loginController@index");
 
 Route::post('/loginValidar',[
     'as'=>'loginValidar',
     'uses'=>"loginController@store"]);
 
-    //ROLES
+
+ //ROLES
 
 Route::resource('/roles',"RolesController");

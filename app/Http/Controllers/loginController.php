@@ -48,37 +48,25 @@ class loginController extends Controller
     public function store(Request $request)
     {
 
+       //return "hola";
 
         $this->validate($request,[
 
-            'correo_name'=>'required',
+            'correo_name'=>'required|string|min:3',
             'contrasenia'=>'required',
 
 
         ]);
 
-      //return $request->session()->all();
-      
-      /*  $usuario=new User;
-        $v=validator::make($request->all(),[
-
-            'correo_name'=>'required',
-            'contrasenia'=>'required'
-        ]);
-
-        if ($v->fails()) {
-            return "fallo";
-        }else {
-        
-            return "exito";
-        }*/
-
-    
         $whitMail = ['email' => $request->correo_name, 'password' => $request->contrasenia];
         $whitUser = ['username' => $request->correo_name, 'password' => $request->contrasenia];
 
         
         if (Auth::attempt($whitMail) || Auth::attempt($whitUser)) {
+
+
+
+            
             return 'login access';
         } else {
             return 'no encontrado';

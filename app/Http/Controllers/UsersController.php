@@ -58,12 +58,25 @@ class UsersController extends Controller
         $usuarios->fecha_nac=$request->fecha_nac;
         $usuarios->tel_usu=$request->tel_usu;
         $usuarios->username=$request->usuario;
+
         $clave = $request->contrasenia;
+
+        $claveConf=$request->confirmcontrasenia;
+
+        if ($clave==$claveConf) {
+
+            
+        
+
 
         $usuarios->password=crypt($clave,'');
         $usuarios->save();
         $usuarios->roles()->attach($rol);
         return redirect("/usuarios");
+       }else
+       {
+        return "las contraseñas no coinciden";
+       }
     }
 
     /**
