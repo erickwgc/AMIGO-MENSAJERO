@@ -18,12 +18,10 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $usuarios=User::all();
-        $roles=Role::all();
+        $usuarios=User::buscar($request->buscar)->orderBy('id','DESC')->paginate(10);
         return view("usuarios.index",compact("usuarios"));
-    
     }
 
     /**
@@ -145,5 +143,9 @@ class UsersController extends Controller
         $usuario=User::findOrFail($id);
         $usuario->delete();
         return redirect("/usuarios");
+    }
+    public function buscador(Request $request){
+        $usuarios=User::buscar($request->buscar)->orderBy('id','DESC')->paginate(10);
+        return view("usuarios.index",compact("usuarios"));
     }
 }

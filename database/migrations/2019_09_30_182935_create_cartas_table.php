@@ -17,6 +17,7 @@ class CreateCartasTable extends Migration
             $table->string('autor');
             $table->string('contenido');
             $table->string('fecha');
+            $table->string('hora');
             $table->timestamps();
         });
     }

@@ -39,12 +39,12 @@
                       <li class="nav-item active">
                         <a class="nav-link" href="#" style="text-decoration: underline;">Boletín<span class="sr-only">(current)</span></a>
                       </li>
-                      <li class="nav-item">
+                    <!--<li class="nav-item">
                         <a class="nav-link" href="http://localhost:8000/usuarios">Usuarios</a>
                       </li>
                       <li class="nav-item ">
                         <a class="nav-link" href="http://localhost:8000/roles">Roles</a>
-                      </li>
+                      </li>!-->
                     </ul>
                   </div>
                 </nav>  

@@ -29,4 +29,12 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Role');
 
     }
+    public function scopeBuscar($query,$buscar){   
+        
+        //return $query->where('nom_usu','LIKE','%' . $buscar . '%');
+        return $query->where('nom_usu','LIKE','%' . $buscar . '%')
+                    ->orWhere('ape_usu','LIKE','%' . $buscar . '%')
+                    ->orWhere('email','LIKE','%' . $buscar . '%');
+        
+    }
 }

@@ -16,6 +16,15 @@ class loginController extends Controller
     
     public function index()
     {
+
+       /* // Verificamos si hay sesión activa
+        if (Auth::check())
+        {
+            // Si tenemos sesión activa mostrará la página de inicio
+            return view("auth.paginaLogin");
+        }
+        // Si no hay sesión activa mostramos el formulario*/
+        
         return view("auth.login");
     }
 
@@ -73,6 +82,22 @@ class loginController extends Controller
         }
        
     }
+
+
+
+
+     public function cerrarSesion()
+     {
+
+           // Cerramos la sesión
+        Auth::logout();
+        // Volvemos al login y mostramos un mensaje indicando que se cerró la sesión
+        return "cerraste la sesion";
+
+
+     }
+
+
 
     protected function validator(array $data)
     {

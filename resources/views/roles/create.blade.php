@@ -35,14 +35,14 @@
 
 <tr>
 <td id="idCampo">Nombre de rol: </td>
-<td><input type="text" name="nom_rol">
+<td><input type="text" name="nom_rol" required pattern="[A-Za-z]{5,40}" title="solo letras Mayusculas y minusculas tamaño: 5-40 caracteres">
     {{csrf_field()}}
 </td>
 </tr>
 
 <tr>
 <td id="idCampo">Descripcion del rol: </td>
-<td><input type="text" name="descripcion">
+<td><input type="text" name="descripcion" required pattern="[A-Za-z0-9]{2,200}" title="Letras y numeros tamaño: 2-200 caracteres">
 </td>
 </tr>
 

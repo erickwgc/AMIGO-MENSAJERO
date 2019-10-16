@@ -36,32 +36,32 @@
 <script>
 
  $(document).ready(function(){
-	 
-	 
-	 $("#datos_formulario").validate();
-						
-				
-	 
-	 
+   
+   
+   $("#datos_formulario").validate();
+            
+        
+   
+   
  });
-	
+  
 
 
 </script>
 
-<form id="datos_formulario" action="/usuarios" method="post" style="background: transparent; width: 90%;">
+<form id="datos_formulario" action="/usuarios" method="post" style="background: transparent; width: 90%;" onsubmit="return validar();">
 <table style="font-size: 16px;font-weight: bold; background: transparent; width: 90%;margin: 20px auto;">
 
 <tr>
 <td id="idCampo">Nombre: </td>
 <td><input type="text" name="nom_usu" placeholder="Nombre" id="nom_usu"   required pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{3,30}"
          title="Solo letras. Tamaño mínimo: 3. Tamaño máximo: 30">
-	
+  
     {{csrf_field()}}
 </td>
 
 <td id="idCampo">Usuario: </td>
-<td><input type="text" name="usuario" pattern="^([a-z]+[0-9]{0,2}){5,12}$" required title="solo letras minusculas y con un numero opcionalmente de hasta dos digitos : Tamaño 5-12" >
+<td><input type="text" name="usuario" pattern="^([a-z]+[0-9]{0,5}){5,12}$" required title="solo letras minusculas y con un numero opcionalmente de hasta 5 digitos : Tamaño 5-12" >
 </td>
 
 </tr>
@@ -71,8 +71,8 @@
 </td>
 
 <td id="idCampo">Contraseña: </td>
-<td><input type="password" name="contrasenia" placeholder="Contraseña"
-                  pattern="[A-Za-z0-9!?-]{8,12}" required >
+<td><input type="password" name="contrasenia" id="contrasenia" placeholder="Contraseña"
+                  pattern="[A-Za-z0-9!?-]{8,12}" required title="letras Mayusculas,minusculas y caracteres  !?-. Tamaño  8-12" >
 </td>
 
 
@@ -84,16 +84,28 @@
 </td>
 
 <td id="idCampo">Confirmar Contraseña: </td>
-<td><input type="password" name="confirmcontrasenia" placeholder="Confirmar Contraseña"
-                  pattern="[A-Za-z0-9!?-]{8,12}" title="letras Mayusculas y minusculas Tamaño entre 8-12  " required >
+<td><input type="password" name="confirmcontrasenia" id="confirmcontrasenia" placeholder="Confirmar Contraseña"
+                  pattern="[A-Za-z0-9!?-]{8,12}" title="letras Mayusculas,minusculas y caracteres  !?-. Tamaño  8-12" required >
 </td>
+
 
 
 </tr>
 
+
+
 <tr>
 <td id="idCampo">Fecha nacimiento: </td>
-<td><input type="date" name="fecha_nac" required>
+<td><input type="date" name="fecha_nac" required min="1550-02-20" max="2015-04-24">
+</td>
+
+<td id="idCampo"><span id="error1" style="margin-left: 50px;"></span></td>
+
+</tr>
+
+<tr>
+<td id="idCampo">Telefono: </td>
+<td><input type="tel" name="tel_usu"  required  title="Solo numeros " >
 </td>
 
 <td id="idCampo">Rol</td>
@@ -105,12 +117,7 @@
   </select>
 </td>
 
-</tr>
 
-<tr>
-<td id="idCampo">Telefono: </td>
-<td><input type="tel" name="tel_usu"  required pattern="^[7|6|]\d{7}$" title="Solo numeros que comiencen de 7 o 6 seguido de 7 digitos" >
-</td>
 </tr>
 
 
@@ -119,19 +126,86 @@
   <th>
     
     <td colspan="2" align="center">
-      <input type="submit" name="enviar" value="" style="background-image: url('{{asset('assets/img/botonRegistrarCuenta.png')}}'); 
+      <input type="submit" name="enviar" id="enviar" value=""  style="background-image: url('{{asset('assets/img/botonRegistrarCuenta.png')}}'); 
                   background-size: cover; height: 40px; width: 241px;margin-top: 50px; margin-left: 30px;">
     </td>
   </th>
 </table>
+
+
+
 </form>
 
 
-<script>
 
-$campo=
-	
-	
+
+
+
+
+
+
+  
+<script type="text/javascript">
+      
+  
+
+  function validar()
+  {
+
+     var contra=document.getElementById("contrasenia").value;
+     var confcontra=document.getElementById("confirmcontrasenia").value;
+
+     if (contra!=confcontra) {
+
+
+        return document.getElementById("enviar").onsubmit=false;
+
+     }else{
+
+
+      return document.getElementById("enviar").onsubmit=true;;
+     }
+
+  }
+
+
+
+
+  $(document).ready(function(){
+
+    $('#confirmcontrasenia').keyup(function(){
+
+     var pas1=$('#contrasenia').val();
+     var pas2=$('#confirmcontrasenia').val();
+
+     if (pas1==pas2) {
+
+            $('#error1').text("coinciden!").css("color","#A2ED96");
+
+     }else{
+
+          $('#error1').text("No coinciden!").css("color","rgb(255,192,0)");
+
+     }
+
+     if (pas2=="") {
+
+        
+            $('#error1').text("no puede estar en blanco").css("color","rgb(255,192,0)");
+     }
+     
+
+
+  });
+
+
+});
+
+
+
+  
+
+
 
 </script>
 

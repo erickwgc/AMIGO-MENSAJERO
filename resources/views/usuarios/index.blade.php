@@ -29,8 +29,24 @@
                 <h2 style="color: white;">ESTA ES LA VISTA DE AMINISTRADOR-PESTAÑA USUARIOS</h2> 
 @endsection
 @section("contenido")
+<form class="form-inline" style="width:18.7%" action="{{ route('usuarios.index') }}"  method="get">
+    <input class="form-control mr-sm-2" id="buscar" name="buscar" type="text" placeholder="Buscar usuario" aria-describedby="buscador">
+    <button type="submit" class="btn btn-warning">Buscar</button>
+</form>
+
+<!--
+<div class="col-8" style="width:30%">
+  <div class="input-group">
+    <input class="form-control mr-sm-2" id="buscar" type="text" placeholder="Buscar usuario" aria-describedby="buscador">
+    <button type="submit" class="btn btn-warning">Buscar</button>
+    </div>
+</div>
+-->
+    <br>
     <input type="submit" value="" onclick = "location='/usuarios/create'" style="background-image: url('{{asset('assets/img/botonCrearCuenta.png')}}'); 
                 background-size: contain; height: 40px; width: 141px;" />
+    
+
     <table border="1">
         <thead>
             <td>Código</td>
@@ -60,7 +76,22 @@
         </tr>
     @endforeach
 
-    
+    {{!! $usuarios->links() !!}}    
 
     </table>
+    
+    <script>
+      window.addEventListener("load",function(){
+        document.getElementById("buscar").addEventListener("keyup",()=>{
+
+            if((document.getElementById("buscar").value.length)>=1)
+              fecth('/usuarios/buscador?buscar=${document.getElementById("texto").value}',{ method:'get'})
+                .then(response =>response.text())
+                .then(html =>{document.getElementById("resultados").innerHTML=html})
+            else
+              document.getElementById("resultados").innerHTML=""
+        })
+      })
+    </script>
+    
 @endsection
